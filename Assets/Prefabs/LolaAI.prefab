@@ -2095,13 +2095,13 @@ MonoBehaviour:
   ObstructionDetectionUpdateTimer: 0
   CurrentHealth: 0
   StartingHealth: 200
-  DetectionRadius: 51
+  DetectionRadius: 5
   CurrentDamageAmount: 5
   DamageAmountRun: 5
-  WanderRadius: 25
-  TabNumber: 1
-  TemperamentTabNumber: 2
-  DetectionTagsTabNumber: 1
+  WanderRadius: 250
+  TabNumber: 2
+  TemperamentTabNumber: 5
+  DetectionTagsTabNumber: 0
   AnimationTabNumber: 3
   SoundTabNumber: 0
   MovementTabNumber: 1
@@ -2111,7 +2111,7 @@ MonoBehaviour:
   AttackAnimationNumber: 1
   RunAttackAnimationNumber: 1
   IdleAnimationNumber: 1
-  CombatTabNumber: 0
+  CombatTabNumber: 1
   FactionsAndTagTabNumber: 0
   EventTabNumber: 1
   MinimumWaitTime: 3
@@ -2136,7 +2136,7 @@ MonoBehaviour:
   ExpandedFieldOfViewAngle: 300
   fieldOfViewAngle: 180
   fieldOfViewAngleRef: 0
-  MaxChaseDistance: 84
+  MaxChaseDistance: 110
   AngleNeededToTurn: 10
   AngleNeededToTurnRunning: 30
   StartingTooCloseDistance: 2

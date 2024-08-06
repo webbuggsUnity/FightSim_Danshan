@@ -3950,6 +3950,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6159729574123188879, guid: d2af66f20b008f943aee04455de56293, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8390765197957637278, guid: d2af66f20b008f943aee04455de56293, type: 3}
       propertyPath: m_Name
       value: CamEnv
@@ -9773,8 +9777,8 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 501527997}
-  - {fileID: 435969172}
   - {fileID: 1035111412}
   - {fileID: 850442232}
   - {fileID: 1066398864}
   - {fileID: 797887504}
+  - {fileID: 435969172}
