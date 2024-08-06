@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2]);
         InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3]);
 
+        totalEnemiesToInstantiate = instantiatedEnemies.Count;
         totalAliveCount = instantiatedEnemies.Count;
         totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
     }
@@ -57,7 +58,6 @@ public class GameManager : MonoBehaviour
             _enemy.SetActive(true);
             posNo++;
         }
-        totalEnemiesToInstantiate = count;
     }
 
     void DisappearFight()
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     //GameObject foundObj;
     public void CheckWinner()
     {
-        totalAliveCount--;
+        totalAliveCount = instantiatedEnemies.Count;
         totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
 
         if (totalAliveCount == 1)
