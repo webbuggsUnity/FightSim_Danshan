@@ -28,6 +28,13 @@ public class MultiLineInputHandler : MonoBehaviour
         RestoreEntries();
     }
 
+    public void ClearAndRestore()
+    {
+        PlayerPrefs.DeleteKey("MultiLineInput");
+        RestoreEntries();
+
+    }
+
     private void OnValueChanged(string text)
     {
         string[] lines = text.Split('\n');
