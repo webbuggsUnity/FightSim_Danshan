@@ -410,7 +410,10 @@ namespace EmeraldAI
         /// Keeps track of whether or not certain animations are currently playing
         /// </summary>
         public void CheckAnimationStates()
-        {           
+        {
+            if (EmeraldComponent == null)
+                return;
+
             if (EmeraldComponent.CombatStateRef == EmeraldAISystem.CombatState.Active)
             {
                 if (EmeraldComponent.WeaponTypeRef == EmeraldAISystem.WeaponType.Melee)

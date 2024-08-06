@@ -514,10 +514,10 @@ MonoBehaviour:
   - {fileID: 2569351257499095469}
   instantiatedEnemies: []
   allEnemiesMat:
-  - {fileID: 2100000, guid: 7e56b6e37c078ed47b6d0e9d9249ea9f, type: 2}
-  - {fileID: 2100000, guid: 158b1badf2abb914bac184232599aa57, type: 2}
-  - {fileID: 2100000, guid: 12bcbcc8d9f6dfd4da9e4fb7992a9646, type: 2}
-  - {fileID: 2100000, guid: ede49bdacb019464789e70d9629ef58e, type: 2}
+  - {fileID: 2100000, guid: ff30415c1df4b7d44a1ab3b513c5a96f, type: 2}
+  - {fileID: 2100000, guid: 070b344bf29b53b4ca02ff1465f3a16b, type: 2}
+  - {fileID: 2100000, guid: 5fad3315f730fdd449c4d512a7142225, type: 2}
+  - {fileID: 2100000, guid: 49d5b1076d4d3a74c9f1730ec29c3d25, type: 2}
   fightScreen: {fileID: 6591824515180011864}
   winScreen: {fileID: 7900444478332202725}
   totalAliveText: {fileID: 1555485551}

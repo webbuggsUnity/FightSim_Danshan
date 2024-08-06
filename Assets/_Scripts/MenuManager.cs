@@ -7,26 +7,10 @@ using UnityEngine.Video;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
-
-    public GameObject mainMenu,nameSelection;
-    public VideoPlayer videoPlayer;
-    //public static int
-
     private void Awake()
     {
         Instance = this;
     }
-    void Start()
-    {
-        //videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Movie_003.mp4");
-        //videoPlayer.Play();
-    }
-
-    public void BackToMain()
-    {
-        nameSelection.SetActive(true);
-    }
-
     public void StartGame()
     {
         DataContainer.Instance.randomEntries = new List<string>(NamesRelated.Instance.allLinesHandlers[0].entries);
