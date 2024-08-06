@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int totalEnemiesToInstantiate, totalAliveCount;
     public List<Transform> enemiesTransforms;
     public List<GameObject> instantiatedEnemies;
+    public Material[] allEnemiesMat;
 
     [Header("UI")]
     public GameObject fightScreen; 
@@ -24,24 +25,39 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+    int posNo;
     private void Start()
     {
+        posNo = 0;
         fightScreen.SetActive(true);
-        Invoke(nameof(DisappearFight),3f);
-        totalEnemiesToInstantiate=DataContainer.Instance.entriesData.Count;
-        for(int i = 0;i< totalEnemiesToInstantiate; i++)
-        {
-            GameObject _enemy=Instantiate(enemyPrefab);
-            _enemy.GetComponent<EnemyCustomizations>().enemyName = DataContainer.Instance.entriesData[i];
+        Invoke(nameof(DisappearFight), 3f);
 
-            _enemy.transform.position = enemiesTransforms[i].transform.position;
-            _enemy.transform.rotation = enemiesTransforms[i].transform.rotation;
+        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(0, allEnemiesMat.Length)]);
+        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0]);
+        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1]);
+        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2]);
+        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3]);
+
+        totalAliveCount = instantiatedEnemies.Count;
+        totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
+    }
+
+    private void InstantiateEnemies(List<string> entries, Material material)
+    {
+        int count = entries.Count;
+        for (int i = 0; i < count; i++)
+        {
+            GameObject _enemy = Instantiate(enemyPrefab);
+            _enemy.GetComponent<EnemyCustomizations>().enemyName = entries[i];
+
+            _enemy.transform.position = enemiesTransforms[posNo].transform.position;
+            _enemy.transform.rotation = enemiesTransforms[posNo].transform.rotation;
+            _enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
             instantiatedEnemies.Add(_enemy);
             _enemy.SetActive(true);
+            posNo++;
         }
-
-        totalAliveCount = totalEnemiesToInstantiate;
-        totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
+        totalEnemiesToInstantiate = count;
     }
 
     void DisappearFight()

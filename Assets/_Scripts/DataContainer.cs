@@ -19,5 +19,5 @@ public class DataContainer : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-    public List<string> entriesData;
+    public List<string> randomEntries,divineEntries,rootEntries,paragonEntries,ordinamEntries;
 }
