@@ -1697,7 +1697,7 @@ MonoBehaviour:
   TargetDetectionActive: 0
   TurnAnimationTypeRef: 1
   IdleActivated: 0
-  DetectionFrequency: 1
+  DetectionFrequency: 2
   PlayerDetectionEventCooldown: 5
   RangedAttackOffset: 0
   HitPointTransform: {fileID: 0}
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   IdleSoundsSecondsMax: 10
   IdleSoundsTimer: 0
   CurrentAttacks: 0
-  ExpandedChaseDistance: 80
+  ExpandedChaseDistance: 300
   StartingChaseDistance: 0
   ExpandedDetectionRadius: 40
   StartingDetectionRadius: 0
@@ -2095,14 +2095,14 @@ MonoBehaviour:
   ObstructionDetectionUpdateTimer: 0
   CurrentHealth: 0
   StartingHealth: 200
-  DetectionRadius: 5
+  DetectionRadius: 300
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 250
   TabNumber: 2
   TemperamentTabNumber: 5
   DetectionTagsTabNumber: 0
-  AnimationTabNumber: 3
+  AnimationTabNumber: 1
   SoundTabNumber: 0
   MovementTabNumber: 1
   WeaponTypeTabNumber: 0
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   IdleAnimationNumber: 1
   CombatTabNumber: 1
   FactionsAndTagTabNumber: 0
-  EventTabNumber: 1
+  EventTabNumber: 0
   MinimumWaitTime: 3
   MaximumWaitTime: 6
   MinimumFollowWaitTime: 1
@@ -2134,9 +2134,9 @@ MonoBehaviour:
   WalkSpeed: 2
   RunSpeed: 5
   ExpandedFieldOfViewAngle: 300
-  fieldOfViewAngle: 180
+  fieldOfViewAngle: 360
   fieldOfViewAngleRef: 0
-  MaxChaseDistance: 110
+  MaxChaseDistance: 500
   AngleNeededToTurn: 10
   AngleNeededToTurnRunning: 30
   StartingTooCloseDistance: 2
@@ -2281,7 +2281,7 @@ MonoBehaviour:
   AlignmentQualityRef: 1
   ObstructionDetectionQualityRef: 2
   ActionAnimationRef: 2
-  PickTargetMethodRef: 2
+  PickTargetMethodRef: 0
   UseNonAITagRef: 0
   UseRunAttacksRef: 1
   UseMagicEffectsPackRef: 0

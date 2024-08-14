@@ -3434,7 +3434,7 @@ namespace EmeraldAI.Utility
 
                     if (self.DetectionTypeRef == EmeraldAISystem.DetectionType.Trigger)
                     {
-                        CustomEditorProperties.CustomIntSlider(new Rect(), new GUIContent(), DetectionRadiusProp, "Detection Distance", 1, 100);
+                        CustomEditorProperties.CustomIntSlider(new Rect(), new GUIContent(), DetectionRadiusProp, "Detection Distance", 1, 300);
                         CustomHelpLabelField("Controls the distance of the AI's trigger radius. When a valid target is within this radius, " +
                             "the AI will react according to its Behavior Type.", true);
                     }

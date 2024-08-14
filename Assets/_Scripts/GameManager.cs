@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     int posNo;
     private void Start()
     {
+        ShuffleList(enemiesTransforms);
         posNo = 0;
         fightScreen.SetActive(true);
         Invoke(nameof(DisappearFight), 3f);
@@ -41,6 +42,20 @@ public class GameManager : MonoBehaviour
         totalEnemiesToInstantiate = instantiatedEnemies.Count;
         totalAliveCount = instantiatedEnemies.Count;
         totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
+    }
+
+    void ShuffleList(List<Transform> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            Transform value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 
     private void InstantiateEnemies(List<string> entries, Material material)

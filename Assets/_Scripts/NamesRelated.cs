@@ -17,12 +17,6 @@ public class NamesRelated : MonoBehaviour
     {
         Instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void CallSave()
     {
         foreach(MultiLineInputHandler handler in allLinesHandlers)
@@ -30,5 +24,17 @@ public class NamesRelated : MonoBehaviour
             handler.SaveEntries();
         }
         saveButton.SetActive(false);
+    }
+
+    public void CallReset()
+    {
+        for (int i=0;i<allInputs.Count;i++)
+        {
+            allLinesHandlers[i].entries.Clear();
+
+            allInputs[i].text = null;
+
+            allLinesHandlers[i].SaveEntries();
+        }
     }
 }
