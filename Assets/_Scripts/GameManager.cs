@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour
         fightScreen.SetActive(true);
         Invoke(nameof(DisappearFight), 3f);
 
-        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(1, allEnemiesMat.Length)],-1,true);
-        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0],0,false);
-        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1],1,true);
-        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2], 2, true);
-        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3], 3, true);
+        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(1, allEnemiesMat.Length)],-1);
+        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0],0);
+        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1],1);
+        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2], 2);
+        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3], 3);
 
         totalEnemiesToInstantiate = instantiatedEnemies.Count;
         totalAliveCount = instantiatedEnemies.Count;
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void InstantiateEnemies(List<string> entries, Material material,int characterNo,bool changeMat)
+    private void InstantiateEnemies(List<string> entries, Material material,int characterNo)
     {
         int count = entries.Count;
         int selectedCharacter=0;
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             _enemy.transform.position = enemiesTransforms[posNo].transform.position;
             _enemy.transform.rotation = enemiesTransforms[posNo].transform.rotation;
 
-            if(changeMat)
+            if(characterNo!=0)
             _enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
 
             instantiatedEnemies.Add(_enemy);
