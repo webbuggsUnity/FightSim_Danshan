@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public int totalEnemiesToInstantiate, totalAliveCount;
     public List<Transform> enemiesTransforms;
     public List<GameObject> instantiatedEnemies;
@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour
         fightScreen.SetActive(true);
         Invoke(nameof(DisappearFight), 3f);
 
-        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(0, allEnemiesMat.Length)]);
-        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0]);
-        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1]);
-        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2]);
-        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3]);
+        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(1, allEnemiesMat.Length)],-1,true);
+        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0],0,false);
+        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1],1,true);
+        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2], 2, true);
+        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3], 3, true);
 
         totalEnemiesToInstantiate = instantiatedEnemies.Count;
         totalAliveCount = instantiatedEnemies.Count;
@@ -58,17 +58,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void InstantiateEnemies(List<string> entries, Material material)
+    private void InstantiateEnemies(List<string> entries, Material material,int characterNo,bool changeMat)
     {
         int count = entries.Count;
+        int selectedCharacter=0;
         for (int i = 0; i < count; i++)
         {
-            GameObject _enemy = Instantiate(enemyPrefab);
+            if (characterNo == -1)
+            {
+                selectedCharacter=Random.Range(0,enemyPrefabs.Length);
+            }
+            else
+            {
+                selectedCharacter = characterNo;
+            }
+            GameObject _enemy = Instantiate(enemyPrefabs[selectedCharacter]);
             _enemy.GetComponent<EnemyCustomizations>().enemyName = entries[i];
 
             _enemy.transform.position = enemiesTransforms[posNo].transform.position;
             _enemy.transform.rotation = enemiesTransforms[posNo].transform.rotation;
+
+            if(changeMat)
             _enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
+
             instantiatedEnemies.Add(_enemy);
             _enemy.SetActive(true);
             posNo++;
