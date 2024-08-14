@@ -1555,36 +1555,6 @@ MonoBehaviour:
     MaxDamage: 20
     AttackOdds: 1
     AttackImpactEffect: {fileID: 0}
-  - AttackAnimaition: 1
-    ReactionID: 0
-    MinDamage: 10
-    MaxDamage: 30
-    AttackOdds: 1
-    AttackImpactEffect: {fileID: 0}
-  - AttackAnimaition: 2
-    ReactionID: 0
-    MinDamage: 30
-    MaxDamage: 40
-    AttackOdds: 1
-    AttackImpactEffect: {fileID: 0}
-  - AttackAnimaition: 3
-    ReactionID: 0
-    MinDamage: 10
-    MaxDamage: 30
-    AttackOdds: 1
-    AttackImpactEffect: {fileID: 0}
-  - AttackAnimaition: 4
-    ReactionID: 0
-    MinDamage: 20
-    MaxDamage: 30
-    AttackOdds: 1
-    AttackImpactEffect: {fileID: 0}
-  - AttackAnimaition: 5
-    ReactionID: 0
-    MinDamage: 30
-    MaxDamage: 40
-    AttackOdds: 1
-    AttackImpactEffect: {fileID: 0}
   MeleeAttacksListIndex: 0
   MeleeRunAttackIndex: 0
   MeleeRunAttackPickType: 2
@@ -1715,11 +1685,11 @@ MonoBehaviour:
   HasTarget: 0
   m_SwitchingWeaponTypes: 0
   TotalIdleAnimations: 1
-  TotalHitAnimations: 2
-  TotalCombatHitAnimations: 2
+  TotalHitAnimations: 5
+  TotalCombatHitAnimations: 4
   TotalRangedCombatHitAnimations: 1
   TotalEmoteAnimations: 1
-  TotalAttackAnimations: 6
+  TotalAttackAnimations: 1
   TotalRangedAttackAnimations: 1
   TotalRunAttackAnimations: 1
   TotalRangedRunAttackAnimations: 1
@@ -1878,17 +1848,7 @@ MonoBehaviour:
     AnimationClip: {fileID: 7400000, guid: 27f3d4d85b1b66f42934827ff1660fa9, type: 3}
   AttackAnimationList:
   - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: a990c4b3893915a4e98b04558ca2388e, type: 3}
-  - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: f02c7252bfc15d54fb432ae2a45a42da, type: 3}
-  - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: 430664b24bf03e44cb8ba58c52a27d6e, type: 3}
-  - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: 7cd0647864cced846911b44e17aa84fd, type: 3}
-  - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: cde6afc530f10334ea9cd4ef70980b8a, type: 3}
-  - AnimationSpeed: 1.5
-    AnimationClip: {fileID: -203655887218126122, guid: 54f3f4ad6c1f5024dab4dd28353ee206, type: 3}
+    AnimationClip: {fileID: 7400000, guid: 9dc782305699b0b4da1f13ce3eec3718, type: 2}
   RunAttackAnimationList:
   - AnimationSpeed: 1.5
     AnimationClip: {fileID: -203655887218126122, guid: b70dd4d258f959740a0cc378f2e13efe, type: 3}
@@ -1900,7 +1860,17 @@ MonoBehaviour:
     AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
   - AnimationSpeed: 1.5
     AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
+  - AnimationSpeed: 1.5
+    AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
+  - AnimationSpeed: 1.5
+    AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
   HitAnimationList:
+  - AnimationSpeed: 1.5
+    AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
+  - AnimationSpeed: 1.5
+    AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
+  - AnimationSpeed: 1.5
+    AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
   - AnimationSpeed: 1.5
     AnimationClip: {fileID: 7400000, guid: c84442af04c299a45b37aa222d5c7a84, type: 2}
   - AnimationSpeed: 1.5
@@ -1910,7 +1880,7 @@ MonoBehaviour:
   RangedRunAttackAnimationList: []
   RangedDeathAnimationList: []
   CurrentAnimationClip: {fileID: 0}
-  Attack1Animation: {fileID: -203655887218126122, guid: a990c4b3893915a4e98b04558ca2388e, type: 3}
+  Attack1Animation: {fileID: 7400000, guid: 9dc782305699b0b4da1f13ce3eec3718, type: 2}
   Attack2Animation: {fileID: -203655887218126122, guid: f02c7252bfc15d54fb432ae2a45a42da, type: 3}
   Attack3Animation: {fileID: -203655887218126122, guid: 430664b24bf03e44cb8ba58c52a27d6e, type: 3}
   Attack4Animation: {fileID: -203655887218126122, guid: 7cd0647864cced846911b44e17aa84fd, type: 3}
@@ -2013,7 +1983,7 @@ MonoBehaviour:
   RangedDeath6Animation: {fileID: 0}
   AnimatorControllerGenerated: 1
   AnimationListsChanged: 0
-  FilePath: Assets/Anim/Lola.overrideController
+  FilePath: Assets/Anim/JettMan.overrideController
   EmeraldTag: Enemy
   UITag: Player
   RagdollTag: Untagged
@@ -2027,8 +1997,8 @@ MonoBehaviour:
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 250
-  TabNumber: 1
-  TemperamentTabNumber: 2
+  TabNumber: 6
+  TemperamentTabNumber: 1
   DetectionTagsTabNumber: 0
   AnimationTabNumber: 2
   SoundTabNumber: 0
@@ -2039,7 +2009,7 @@ MonoBehaviour:
   AttackAnimationNumber: 1
   RunAttackAnimationNumber: 1
   IdleAnimationNumber: 1
-  CombatTabNumber: 1
+  CombatTabNumber: 0
   FactionsAndTagTabNumber: 0
   EventTabNumber: 1
   MinimumWaitTime: 3
@@ -2369,7 +2339,7 @@ Animator:
   m_GameObject: {fileID: 6406489064020209082}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2b90ee98e0d4f69478d7438625c03f52, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4cf9c475d86c28a41b8f10b7e2bb2892, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c642ee9104280c478424a4b9986e812, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
