@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject[] enemyPrefabs;
+    
     public int totalEnemiesToInstantiate, totalAliveCount;
+    public List<Faction> factions;
     public List<Transform> enemiesTransforms;
     public List<GameObject> instantiatedEnemies;
     public Material[] allEnemiesMat;
@@ -20,6 +21,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI totalAliveText;
     public TextMeshProUGUI winnerNameText;
 
+    public List<GameObject> allWeapons;
+
+    [System.Serializable]
+    public class Faction
+    {
+        public GameObject[] enemyPrefabs;
+    }
 
     private void Awake()
     {
@@ -33,11 +41,11 @@ public class GameManager : MonoBehaviour
         fightScreen.SetActive(true);
         Invoke(nameof(DisappearFight), 3f);
 
-        InstantiateEnemies(DataContainer.Instance.randomEntries, allEnemiesMat[Random.Range(1, allEnemiesMat.Length)],-1);
-        InstantiateEnemies(DataContainer.Instance.divineEntries, allEnemiesMat[0],0);
-        InstantiateEnemies(DataContainer.Instance.rootEntries, allEnemiesMat[1],1);
-        InstantiateEnemies(DataContainer.Instance.paragonEntries, allEnemiesMat[2], 2);
-        InstantiateEnemies(DataContainer.Instance.ordinamEntries, allEnemiesMat[3], 3);
+        InstantiateEnemies(DataContainer.Instance.randomEntries,-1);
+        InstantiateEnemies(DataContainer.Instance.divineEntries ,0);
+        InstantiateEnemies(DataContainer.Instance.rootEntries,1);
+        InstantiateEnemies(DataContainer.Instance.paragonEntries, 2);
+        InstantiateEnemies(DataContainer.Instance.ordinamEntries, 3);
 
         totalEnemiesToInstantiate = instantiatedEnemies.Count;
         totalAliveCount = instantiatedEnemies.Count;
@@ -58,28 +66,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void InstantiateEnemies(List<string> entries, Material material,int characterNo)
+    private void InstantiateEnemies(List<string> entries,int factionNo)
     {
         int count = entries.Count;
+        int randFaction = 0;
         int selectedCharacter=0;
         for (int i = 0; i < count; i++)
         {
-            if (characterNo == -1)
+            if (factionNo == -1)
             {
-                selectedCharacter=Random.Range(0,enemyPrefabs.Length);
+                randFaction = Random.Range(0, factions.Count);
+                int enemyNo = Random.Range(0, factions[randFaction].enemyPrefabs.Length);
+                selectedCharacter = enemyNo;
             }
             else
             {
-                selectedCharacter = characterNo;
+                if (factionNo == 0)
+                {
+                    selectedCharacter = i%2;
+                }
+                else {
+                    randFaction = factionNo;
+                    selectedCharacter = Random.Range(0, factions[randFaction].enemyPrefabs.Length);
+                }
             }
-            GameObject _enemy = Instantiate(enemyPrefabs[selectedCharacter]);
+            GameObject _enemy = Instantiate(factions[randFaction].enemyPrefabs[selectedCharacter]);
             _enemy.GetComponent<EnemyCustomizations>().enemyName = entries[i];
 
             _enemy.transform.position = enemiesTransforms[posNo].transform.position;
             _enemy.transform.rotation = enemiesTransforms[posNo].transform.rotation;
 
-            if(characterNo!=0)
-            _enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
+            //if(factionNo!=0)
+            //_enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
 
             instantiatedEnemies.Add(_enemy);
             _enemy.SetActive(true);

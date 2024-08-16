@@ -12,13 +12,19 @@ public class EnemyCustomizations : MonoBehaviour
     public Image imageHealth;
     public TextMeshProUGUI enemyNameText;
     public float currentHealth, totalHealth;
+    public List<GameObject> weapons;
     private void Start()
     {
         //enemyAI=this.GetComponent<EmeraldAISystem>();
         enemyNameText.text = enemyName;
+        foreach(GameObject weapon in weapons)
+        {
+            weapon.SetActive(false);
+        }
+        weapons[Random.Range(0, weapons.Count)].SetActive(true);
     }
 
-    public float n;
+    float n;
     private void Update()
     {
         currentHealth = enemyAI.CurrentHealth;
