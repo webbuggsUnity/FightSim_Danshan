@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         ShuffleList(enemiesTransforms);
         posNo = 0;
         fightScreen.SetActive(true);
-        Invoke(nameof(DisappearFight), 3f);
+        Invoke(nameof(DisappearFight), 2f);
 
         InstantiateEnemies(DataContainer.Instance.randomEntries,-1);
         InstantiateEnemies(DataContainer.Instance.divineEntries ,0);
@@ -85,20 +85,31 @@ public class GameManager : MonoBehaviour
                 {
                     selectedCharacter = i%2;
                 }
-                else {
+                else{
                     randFaction = factionNo;
                     selectedCharacter = Random.Range(0, factions[randFaction].enemyPrefabs.Length);
                 }
             }
             GameObject _enemy = Instantiate(factions[randFaction].enemyPrefabs[selectedCharacter]);
             _enemy.GetComponent<EnemyCustomizations>().enemyName = entries[i];
+            switch (randFaction)
+            {
+                case 0:
+                _enemy.GetComponent<EnemyCustomizations>().factionName = "Divine Wind";
+                    break;
+                case 1:
+                    _enemy.GetComponent<EnemyCustomizations>().factionName = "Root Prime";
+                    break;
+                case 2:
+                    _enemy.GetComponent<EnemyCustomizations>().factionName = "Project Paragon";
+                    break;
+                case 3:
+                    _enemy.GetComponent<EnemyCustomizations>().factionName = "Ordinem";
+                    break;
+            }
 
             _enemy.transform.position = enemiesTransforms[posNo].transform.position;
             _enemy.transform.rotation = enemiesTransforms[posNo].transform.rotation;
-
-            //if(factionNo!=0)
-            //_enemy.GetComponentInChildren<SkinnedMeshRenderer>().material = material;
-
             instantiatedEnemies.Add(_enemy);
             _enemy.SetActive(true);
             posNo++;
@@ -137,7 +148,8 @@ public class GameManager : MonoBehaviour
             //        break;
             //    }
             //}
-            winnerNameText.text = instantiatedEnemies[0].GetComponent<EnemyCustomizations>().enemyName + " is the Winner";
+            winnerNameText.text = instantiatedEnemies[0].GetComponent<EnemyCustomizations>().enemyName + 
+                " from " + instantiatedEnemies[0].GetComponent<EnemyCustomizations>().factionName;
         }
     }
 }

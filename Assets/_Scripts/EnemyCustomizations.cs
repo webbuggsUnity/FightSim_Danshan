@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class EnemyCustomizations : MonoBehaviour
 {
     public EmeraldAISystem enemyAI;
-    public string enemyName;
+    public string enemyName,factionName;
     public Image imageHealth;
     public TextMeshProUGUI enemyNameText;
     public float currentHealth, totalHealth;
