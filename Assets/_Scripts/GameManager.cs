@@ -37,20 +37,20 @@ public class GameManager : MonoBehaviour
     int posNo;
     private void Start()
     {
-        //ShuffleList(enemiesTransforms);
-        //posNo = 0;
-        //fightScreen.SetActive(true);
-        //Invoke(nameof(DisappearFight), 2f);
+        ShuffleList(enemiesTransforms);
+        posNo = 0;
+        fightScreen.SetActive(true);
+        Invoke(nameof(DisappearFight), 2f);
 
-        //InstantiateEnemies(DataContainer.Instance.randomEntries,-1);
-        //InstantiateEnemies(DataContainer.Instance.divineEntries ,0);
-        //InstantiateEnemies(DataContainer.Instance.rootEntries,1);
-        //InstantiateEnemies(DataContainer.Instance.paragonEntries, 2);
-        //InstantiateEnemies(DataContainer.Instance.ordinamEntries, 3);
+        InstantiateEnemies(DataContainer.Instance.randomEntries, -1);
+        InstantiateEnemies(DataContainer.Instance.divineEntries, 0);
+        InstantiateEnemies(DataContainer.Instance.rootEntries, 1);
+        InstantiateEnemies(DataContainer.Instance.paragonEntries, 2);
+        InstantiateEnemies(DataContainer.Instance.ordinamEntries, 3);
 
-        //totalEnemiesToInstantiate = instantiatedEnemies.Count;
-        //totalAliveCount = instantiatedEnemies.Count;
-        //totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
+        totalEnemiesToInstantiate = instantiatedEnemies.Count;
+        totalAliveCount = instantiatedEnemies.Count;
+        totalAliveText.text = "Total Alive Count: " + totalAliveCount + " / " + totalEnemiesToInstantiate;
     }
 
     void ShuffleList(List<Transform> list)
